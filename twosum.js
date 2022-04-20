@@ -9,7 +9,7 @@ var twoSum = function(nums, target) {
   
   while (p1 < nums.length-1) {
     if (nums[p1] + nums[p2] === target) return [p1, p2];
-    if (p2 === nums.length) {
+    if (p2 === nums.length-1) {
       p1++;
       p2 = p1+1;
     } else p2++;
