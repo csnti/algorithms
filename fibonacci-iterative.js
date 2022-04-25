@@ -12,7 +12,7 @@ return arr[n];
 };
 
 /**
- * use array to store each fibonacci value up to the n'th sequence
- * if n is greater than 1, execute the operations within the for loop
- * which appends the sum of the two elements at the end of the array
+ * Use an array to store each fibonacci value up to the n'th sequence.
+ * If n is greater than one, execute the operations within the for loop,
+ * then append the sum of the two elements to the end of the array.
  */
