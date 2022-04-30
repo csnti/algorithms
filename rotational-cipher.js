@@ -3,40 +3,42 @@ const nums = "0123456789";
 
 function rotationalCipher(input, rotationFactor) {
   if (rotationFactor === 0) return input;
-  let result = "";
   let i = 0;
-  let isLetter = false;
+  let result = "";
   let isNumber = false;
+  let isLetter = false;
   let upper = false;
   let phaseRun = false;
   let phase = rotationFactor;
-  let index = 0;
+  let charIndex = 0;
   let currentChar = input.charAt(i);
 
   while (i < input.length) {
     if (phaseRun === false) {
       currentChar = input.charAt(i);
 
-      if (+currentChar) { // if (isNaN(currentChar) === false) isNumber = true;
+      if (+currentChar) { // if (isNaN(currentChar) === false) {
         isNumber = true; 
-      } else if (currentChar.toLowerCase() !== currentChar.toUpperCase()) { // else if (/^([a-zA-Z])$/.test(currentChar) === true)
+      } else if (currentChar.toLowerCase() !== currentChar.toUpperCase()) { // else if (/^([a-zA-Z])$/.test(currentChar) === true) {
           isLetter = true;
           if (currentChar !== currentChar.toLowerCase()) {
             currentChar = currentChar.toLowerCase();
             upper = true;
           }
+      } else {
+          phase = 1; // If char isn't a number or a letter, skip to phase 0 immediately.
       }
       phaseRun = true; // Begin the rotation of this char.
     }
 
     if (isNumber === true) {
-      index = nums.indexOf(currentChar);
-      currentChar = index === 9 ? nums.charAt(0) : nums.charAt(index + 1);
+      charIndex = nums.indexOf(currentChar);
+      currentChar = charIndex === 9 ? nums.charAt(0) : nums.charAt(charIndex + 1);
     }
 
     if (isLetter === true) {      
-      index = alphabet.indexOf(currentChar);    
-      currentChar = index === 25 ? alphabet.charAt(0) : alphabet.charAt(index + 1);      
+      charIndex = alphabet.indexOf(currentChar);    
+      currentChar = charIndex === 25 ? alphabet.charAt(0) : alphabet.charAt(charIndex + 1);      
     }
 
     phase--;
@@ -44,22 +46,23 @@ function rotationalCipher(input, rotationFactor) {
     if (phase === 0) {      
       if (upper === true) {
         currentChar = currentChar.toUpperCase();
-        upper = null;
+        upper = false;
       }
       
-      isLetter = false;
-      isNumber = false;
-      phaseRun = false;
-      result += currentChar;
-      phase = rotationFactor;
       i++;
+      result += currentChar;
+      isNumber = false;
+      isLetter = false;
+      phaseRun = false;
+      phase = rotationFactor;
     }
   }
 return result;
 };
 // O(n) time, O(n) space
-// From what I understand, strings in Javascript are immutable.
-// I don't know if O(1) space can be achieved.
+// From what I understand, strings in Javascript are immutable. I don't know if O(1) space can be achieved.
+// Constraints: input <= 1,000,000 
+// Chromium starts to hang if input > 10,000,000
 
 
 
