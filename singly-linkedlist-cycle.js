@@ -19,7 +19,7 @@ function hasCycle(head) {
   }
   return true;
 };
-// If p2 ever lands on a node where the "ListNode.val" equals null or "ListNode.next" equals null, then return false.
+// If p2 ever lands on a ListNode where the "this.next.next" equals null or "this.next.next.next" equals null, then return false.
 // There can't be a loop if the node doesn't link to anything.
 // The while-loop ends if the node of p2 explicitly matches the node of p1.
 // (As in: they're both symbolically linked to the same ListNode in memory).
