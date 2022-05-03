@@ -15,6 +15,6 @@ function twoSum(nums, target) {
     } else {
       p2++;
     }
-
   return 0;
+  }
 };
