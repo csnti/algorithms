@@ -9,7 +9,7 @@ function rotationalCipher(input, rotationFactor) {
   let isLetter = false;
   let upper = false;
   let phaseRun = false;
-  let phase = rotationFactor;
+  let phase = 0;
   let charIndex = 0;
   let currentChar = input.charAt(i);
 
@@ -17,33 +17,24 @@ function rotationalCipher(input, rotationFactor) {
     if (phaseRun === false) {
       currentChar = input.charAt(i);
 
-      if (+currentChar) { // if (isNaN(currentChar) === false) {
+      if (isNaN(currentChar) === false) { // NOTE: if (+currentChar) { Will not work here, it completely ignores the char '0'
         isNumber = true; 
+        phase = rotationFactor % 10;
+        
       } else if (currentChar.toLowerCase() !== currentChar.toUpperCase()) { // else if (/^([a-zA-Z])$/.test(currentChar) === true) {
           isLetter = true;
+          phase = rotationFactor % 26;
+        
           if (currentChar !== currentChar.toLowerCase()) {
             currentChar = currentChar.toLowerCase();
             upper = true;
           }
-      } else {
-          phase = 1; // If char isn't a number or a letter, skip to phase 0 immediately.
       }
+      
       phaseRun = true; // Begin the rotation of this char.
     }
 
-    if (isNumber === true) {
-      charIndex = nums.indexOf(currentChar);
-      currentChar = charIndex === 9 ? nums.charAt(0) : nums.charAt(charIndex + 1);
-    }
-
-    if (isLetter === true) {      
-      charIndex = alphabet.indexOf(currentChar);    
-      currentChar = charIndex === 25 ? alphabet.charAt(0) : alphabet.charAt(charIndex + 1);      
-    }
-
-    phase--;
-
-    if (phase === 0) {      
+    if (phase <= 0) {      
       if (upper === true) {
         currentChar = currentChar.toUpperCase();
         upper = false;
@@ -54,15 +45,27 @@ function rotationalCipher(input, rotationFactor) {
       isNumber = false;
       isLetter = false;
       phaseRun = false;
-      phase = rotationFactor;
+      phase = 0;
     }
+    
+    if (isNumber === true) {
+      charIndex = nums.indexOf(currentChar);
+      currentChar = charIndex === 9 ? nums.charAt(0) : nums.charAt(charIndex + 1);
+    }
+
+    if (isLetter === true) {      
+      charIndex = alphabet.indexOf(currentChar);    
+      currentChar = charIndex === 25 ? alphabet.charAt(0) : alphabet.charAt(charIndex + 1);      
+    }
+
+    phase--;    
   }
 return result;
 };
 // O(n) time, O(n) space
 // From what I understand, strings in Javascript are immutable. I don't know if O(1) space can be achieved.
 // Constraints: input <= 1,000,000 
-// Chromium starts to hang if input > 10,000,000
+// Works on very large numbers
 
 
 
@@ -110,6 +113,12 @@ check(expected_1, output_1);
 var input_2 = "abcdZXYzxy-999.@";
 var rotationFactor_2 = 200;
 var expected_2 = "stuvRPQrpq-999.@";
+var output_2 = rotationalCipher(input_2, rotationFactor_2);
+check(expected_2, output_2);
+
+var input_2 = "abcdefghijklmNOPQRSTUVWXYZ0123456789";
+var rotationFactor_2 = 39;
+var expected_2 = "nopqrstuvwxyzABCDEFGHIJKLM9012345678";
 var output_2 = rotationalCipher(input_2, rotationFactor_2);
 check(expected_2, output_2);
 
