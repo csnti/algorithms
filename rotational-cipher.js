@@ -11,7 +11,7 @@ function rotationalCipher(input, rotationFactor) {
   let phaseRun = false;
   let phase = 0;
   let charIndex = 0;
-  let currentChar = input.charAt(i);
+  let currentChar = "";
 
   while (i < input.length) {
     if (phaseRun === false) {
