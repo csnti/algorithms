@@ -1,22 +1,15 @@
-// Add any extra import statements you may need here
-
-
-// Add any helper functions you may need here
-
 function findEncryptedWord(s) {
-  if (s === "") return s;
   let mid = s.length % 2 === 1 ? Math.floor(s.length / 2) : s.length / 2 - 1;
-  
-return s.charAt(mid) + findEncryptedWord(s.substring(0, mid)) + findEncryptedWord(s.substring(mid + 1));
-}
+
+  if (s === "") return s;  
+  return s.charAt(mid) + findEncryptedWord(s.substring(0, mid)) + findEncryptedWord(s.substring(mid + 1));
+};
 // If s has an odd length, half it, the middle is rounded down.
 // If s has an even length, half it, subtract one to get the "left-most" index in the middle.
-// Get the middle char of s and append the "left side" of s (up-to mid)
-// Followed by the "right side" of s (up-to mid plus one, to start from the "right-most" char)
+// Get the middle char of s and append the "left side" of s (up-to mid),
+// followed by the "right side" of s (up-to mid plus one, to start from the "right-most" char in the middle, to the end of s).
 // The shuffling is done recursively until the input is empty and returns an empty string, which completes the stack.
 // O(n log n) time. O(n) space.
-
-
 
 
 // These are the tests we use to determine if the solution is correct.

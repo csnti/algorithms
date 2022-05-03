@@ -4,13 +4,10 @@
  *     this.val = val;
  *     this.next = null;
  * }
- */
-
-/**
  * @param {ListNode} head
  * @return {boolean}
  */
- function hasCycle(head) {
+function hasCycle(head) {
   if (head === null) return false;
   let p1 = head;
   let p2 = head.next;
@@ -20,10 +17,10 @@
     p1 = p1.next;
     p2 = p2.next.next;
   }
-return true;
+  return true;
 };
-
-// If p2 ever lands on an object where "ListNode" or ListNode.next" equals "null", then return false.
-// There can't be a loop if there's nothing there to link to.
-// The while-loop ends if p2 explicitly matches p1 (as in: they're both symbolically linked to the same ListNode in memory).
+// If p2 ever lands on a node where the "ListNode.val" equals null or "ListNode.next" equals null, then return false.
+// There can't be a loop if the node doesn't link to anything.
+// The while-loop ends if the node of p2 explicitly matches the node of p1.
+// (As in: they're both symbolically linked to the same ListNode in memory).
 // This means that there is a cycle; return true.

@@ -14,6 +14,6 @@ function lengthOfLongestSubstring(s) {
       p1++;
     }
   }
-return result;
+  return result;
 };
 // O(n) time, O(1) space.

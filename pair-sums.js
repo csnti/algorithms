@@ -11,17 +11,18 @@ function pairSums(k, n, arr) {
   let p1 = 0;
   let p2 = 1;
   let count = 0;
- 
+
   while (p1 < n - 1) {
     if (arr[p1] + arr[p2] === k ) count++
     if (p2 === n - 1) {
       p1++;
       p2 = p1 + 1;
-    } else p2++;
+    } else {
+      p2++;
+    }
   }
-return count;
-}
-
+  return count;
+};
 console.log(pairSums(6, 5, [1, 5, 3, 3, 3]), "Expected output: 4")
 console.log(pairSums(4, 3, [1, 2, 3, 4, 3]), "Expected output: 1")
 console.log(pairSums(6, 4, [1, 2, 3, 4, 3]), "Expected output: 1")

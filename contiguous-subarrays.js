@@ -1,10 +1,9 @@
 function countSubarrays(arr) {
   let count = 1;
   let result = [];
-  
-  for (let i = 0; i < arr.length; i++) {    
-    for (let j = 0; j < arr.length; j++) {
 
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
       if (arr[j] > arr[i]) break;
       if (arr[i] < arr[i-1]) break;
       if (arr[i] > arr[j]) count++;
@@ -12,17 +11,11 @@ function countSubarrays(arr) {
     result.push(count);
     count = 1;
   }
-return result;
-}
+  return result;
+};
 // Extremely inefficient O(n^2) time complexity, O(n) space.
 // Should be optimized to O(n) time complexity.
 // I'll come back to it later, I need a "break" from this one..
-
-
-
-
-
-
 
 
 // These are the tests we use to determine if the solution is correct.

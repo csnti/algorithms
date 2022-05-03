@@ -16,21 +16,17 @@ function rotationalCipher(input, rotationFactor) {
   while (i < input.length) {
     if (phaseRun === false) {
       currentChar = input.charAt(i);
-
-      if (isNaN(currentChar) === false) { // NOTE: if (+currentChar) { Will not work here, it completely ignores the char '0'
+      if (isNaN(currentChar) === false) { // NOTE: if (+currentChar) { Will not work here, it completely ignores the char '0'.
         isNumber = true; 
         phase = rotationFactor % 10;
-        
       } else if (currentChar.toLowerCase() !== currentChar.toUpperCase()) { // else if (/^([a-zA-Z])$/.test(currentChar) === true) {
           isLetter = true;
           phase = rotationFactor % 26;
-        
           if (currentChar !== currentChar.toLowerCase()) {
             currentChar = currentChar.toLowerCase();
             upper = true;
           }
       }
-      
       phaseRun = true; // Begin the rotation of this char.
     }
 
@@ -39,7 +35,6 @@ function rotationalCipher(input, rotationFactor) {
         currentChar = currentChar.toUpperCase();
         upper = false;
       }
-      
       i++;
       result += currentChar;
       isNumber = false;
@@ -47,33 +42,24 @@ function rotationalCipher(input, rotationFactor) {
       phaseRun = false;
       phase = 0;
     }
-    
+
     if (isNumber === true) {
       charIndex = nums.indexOf(currentChar);
       currentChar = charIndex === 9 ? nums.charAt(0) : nums.charAt(charIndex + 1);
     }
 
-    if (isLetter === true) {      
-      charIndex = alphabet.indexOf(currentChar);    
-      currentChar = charIndex === 25 ? alphabet.charAt(0) : alphabet.charAt(charIndex + 1);      
+    if (isLetter === true) {
+      charIndex = alphabet.indexOf(currentChar);
+      currentChar = charIndex === 25 ? alphabet.charAt(0) : alphabet.charAt(charIndex + 1);
     }
-
-    phase--;    
+    phase--;
   }
-return result;
+  return result;
 };
-// O(n) time, O(n) space
+// O(n) time, O(n) space.
 // From what I understand, strings in Javascript are immutable. I don't know if O(1) space can be achieved.
-// Constraints: input <= 1,000,000 
-// Works on very large numbers
-
-
-
-
-
-
-
-
+// Constraints: input <= 1,000,000.
+// Can rotate with very large numbers; the result is the same, up to a certain number of zeros.
 
 
 // These are the tests we use to determine if the solution is correct.
