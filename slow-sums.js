@@ -1,5 +1,5 @@
 function getTotalTime(arr) {
-  arr.sort((a,b) => b - a);
+  arr.sort((a, b) => { return b - a });
   let total = 0;
   let prev = arr[0];
 
