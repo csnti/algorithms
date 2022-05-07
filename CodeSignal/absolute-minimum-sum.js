@@ -1,12 +1,12 @@
 function abs(arr) {
   let minIndex = 0;
   let minVal = 0;
-  let total = 0
+  let total = 0;
   let sumStorage = [];
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
-      total += sum(arr[i], arr[j])
+      total += sum(arr[i], arr[j]);
     }
     sumStorage.push([ total, arr[i] ]);
     total = 0;
