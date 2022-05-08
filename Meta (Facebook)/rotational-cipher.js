@@ -56,7 +56,7 @@ function rotationalCipher(input, rotationFactor) {
   }
   return result;
 };
-// O(n) time, O(n) space.
+// O(n) time, O(2n) space.
 // From what I understand, strings in Javascript are immutable. I don't know if O(1) space can be achieved.
 // Constraints: input <= 1,000,000.
 // Can rotate with very large numbers; the result is the same, up to a certain number of zeros.
