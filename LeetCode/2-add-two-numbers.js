@@ -3,14 +3,15 @@
 function addTwoNumbers(l1, l2) {
   let s1 = BigInt(listToArray(l1).reverse().join(''));
   let s2 = BigInt(listToArray(l2).reverse().join(''));
-  let result = BigInt(s1) + BigInt(s2);
-  debugger
+  let result = s1 + s2;
+  
   if (result === 0) return new ListNode(0);
-  return stringToList(result.toString(10));
+  return stringToList(result.toString());
 };
 
 function listToArray(list) {
   let arr = [];
+  
   while(list !== null) {
     console.log(list)
     arr.push(list.val);
