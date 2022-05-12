@@ -1,7 +1,5 @@
-/**
- * @param {number}
- * @return {number}
- */
+// https://leetcode.com/problems/n-th-tribonacci-number/
+
 function tribonacci(n) {
   let arr = [0, 1, 1];
 

@@ -1,7 +1,5 @@
-/** 
- * @param {number} 
- * @return {number}
- */
+// https://leetcode.com/problems/fibonacci-number/
+
 function fib(n) {
   let arr = [0, 1];
 

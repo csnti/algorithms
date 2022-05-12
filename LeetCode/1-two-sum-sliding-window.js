@@ -1,8 +1,5 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
+// https://leetcode.com/problems/two-sum/
+
 function twoSum(nums, target) {
   let p1 = 0;
   let p2 = 1;

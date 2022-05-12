@@ -1,8 +1,5 @@
-/**
- * @param {string} s
- * @param {string} goal
- * @return {boolean}
- */
+// https://leetcode.com/problems/rotate-string/
+
 function rotateString(s, goal) {
   let arr = Array.from(s);
 

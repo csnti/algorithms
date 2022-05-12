@@ -1,7 +1,5 @@
-/**
- * @param {number}
- * @return {number} 
- */
+// https://leetcode.com/problems/n-th-tribonacci-number/
+
 function tribonacci(n, cache) {
   cache = cache || {};
 

@@ -1,8 +1,5 @@
-/**
- * @param {string} s
- * @param {number} numRows
- * @return {string}
- */
+// https://leetcode.com/problems/zigzag-conversion/
+
 function convert(s, numRows) {
   if (numRows === 1) return s;
   let rows = Array(numRows).fill('');
