@@ -13,7 +13,6 @@ function listToArray(list) {
   let arr = [];
   
   while(list !== null) {
-    console.log(list)
     arr.push(list.val);
     list = list.next
   }
@@ -25,12 +24,12 @@ function stringToList(str) {
   let dummy = cur;
   
   for (let i = str.length - 1; i >= 0; i--) {
-    cur.next = new ListNode(str[i]);
+    cur.next = new ListNode(parseInt(str[i]));
     cur = cur.next;
   }
   return dummy.next;
 };
-
+/**
 function ListNode(val, next) {
   this.val = (val===undefined ? 0 : val)
   this.next = (next===undefined ? null : next)
@@ -60,3 +59,4 @@ let f = generateList([5,6,4,9]);
 addTwoNumbers(a, b);
 addTwoNumbers(c, d);
 addTwoNumbers(e, f);
+**/
