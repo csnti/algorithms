@@ -51,7 +51,7 @@ LinkedList.prototype.generateList = function(arr) {
     currentNode = currentNode.next;  
     i++;
   }
-  currentNode.next = this.head; // Make it a cycle.
+  currentNode.next = this.head;
   return this.head;
 };
 
