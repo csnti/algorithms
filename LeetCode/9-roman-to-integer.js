@@ -16,11 +16,9 @@ function romanToInt(s) {
   for (let i = 0; i <= s.length-1; i++) {
     if (nums[ s[i] ] < nums[ s[i+1] ]) {
       total -= nums[ s[i] ];
-
     } else {
       total += nums[ s[i] ];
     }
-    
   }
   return total;
 }
